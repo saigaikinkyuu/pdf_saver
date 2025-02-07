@@ -37,6 +37,7 @@ fetch("../files.json")
 if(flag === false){
   window.location.href = "../error/?code=10001&num=null"
 }else{
+  return
   const url = new URL(window.location);
   // URLのクエリパラメータを削除
   url.search = '';
