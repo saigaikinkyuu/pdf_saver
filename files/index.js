@@ -21,8 +21,8 @@ fetch("../files.json")
             for(let s = 0;s<datas.length;s++){
               if(datas[s].url === name){
                 alert("実行2")
-                s += datas.length
                 if(datas[s].sta === "available"){
+                  s += datas.length
                   alert("実行3")
                   document.body.innerHTML = "<iframe src='../?req=sh&name=none&url=./files/ac/" + item[i].hrf + "' style='width: 100%;height: 100%;'></iframe>"
                   flag = true
