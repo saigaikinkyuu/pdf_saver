@@ -45,7 +45,7 @@ if(flag === true){
                 window.close()
               }
             }
-            const response = await fetch(file_info[0] + '.txt');
+            const response = await fetch("./files/data/" + file_info[0] + '.txt');
             const id = await response.text();
             window.location.href = "./files/?name=" + file_info[0] + "&id=" + id;
           }else if(file_info[1] === "un_available"){
