@@ -60,6 +60,11 @@ if(flag === true){
         }
       })
   }else if(request_flag === "sh"){
+    const url = new URL(window.location);
+    // URLのクエリパラメータを削除
+    url.search = '';
+    // 新しいURLをヒストリーに追加し、ページをリロードせずにURLを変更
+    window.history.pushState({}, document.title, url);
     const url_sh = urlParams.get('url');
     window.location.href = url_sh
   }
