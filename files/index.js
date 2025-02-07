@@ -20,7 +20,7 @@ fetch("../files.json")
               if(datas[s].url === name){
                 if(datas[s].sta === "available"){
                   s += datas.length
-                  document.body.innerHTML = "<a href='../?req=sh&name=none&url=./files/ac/" + item[i].hrf + "' downloadダウンロード></a>"
+                  document.body.innerHTML = "<a href='../?req=sh&name=none&url=./files/ac/" + item[i].hrf + "' download>ダウンロード</a>"
                   document.title = "Contents"
                   flag = true
                 }
