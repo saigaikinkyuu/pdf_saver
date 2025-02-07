@@ -45,9 +45,11 @@ if(flag === true){
                 window.close()
               }
             }
-            const response = await fetch("./files/data/" + file_info[0] + '.ids');
-            const id = await response.text();
-            window.location.href = "./files/?name=" + file_info[0] + "&id=" + id;
+            (async () => {
+              const response = await fetch("./files/data/" + file_info[0] + '.ids');
+              const id = await response.text();
+              window.location.href = "./files/?name=" + file_info[0] + "&id=" + id;
+            })()
           }else if(file_info[1] === "un_available"){
             window.location.href = "./error/?code=00001&num=" + file_info[5];
           }else if(file_info[1] === "limit"){
