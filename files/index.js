@@ -16,11 +16,14 @@ fetch("../files.json")
         let item = items.files
         for(let i = 0;i<item.length;i++){
           if(item[i].key === id && item[i].url === name){
+            alert("実行1")
             i += item.length
             for(let s = 0;s<datas.length;s++){
               if(datas[s].url === name){
+                alert("実行2")
                 s += datas.length
                 if(datas[s].sta === "available"){
+                  alert("実行3")
                   document.body.innerHTML = "<iframe src='../?req=sh&name=none&url=./files/ac/" + item[i].hrf + "' style='width: 100%;height: 100%;'></iframe>"
                   flag = true
                 }
