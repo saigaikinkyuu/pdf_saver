@@ -25,11 +25,11 @@ if(flag === true){
           }else {
             if(files_ac[i].id === file_name){
               check_flag = true
-              file_info.push(files_ac[i].url,files_ac[i].sta,files_ac[i].memo,files_ac[i].date,files_ac[i].update,i)
+              file_info.push(files_ac[i].url,files_ac[i].sta,files_ac[i].memo,files_ac[i].date,files_ac[i].update,i,files_ac[i].cont.kind)
             }else if(files_ac[i].update){
               if((files_ac[i].old).includes(file_name)){
                 check_flag = true
-                file_info.push(files_ac[i].url,files_ac[i].sta,files_ac[i].memo,files_ac[i].date,files_ac[i].update,i)
+                file_info.push(files_ac[i].url,files_ac[i].sta,files_ac[i].memo,files_ac[i].date,files_ac[i].update,i,files_ac[i].cont.kind)
               }
             }
           }
@@ -45,7 +45,7 @@ if(flag === true){
                 window.close()
               }
             }
-            window.location.href = "./files/ac/" + file_info[0];
+            window.location.href = "./files/ac/" + file_info[0] + "." + file_info[6];
           }else if(file_info[1] === "un_available"){
             window.location.href = "./error/?code=00001&num=" + file_info[5];
           }else if(file_info[1] === "limit"){
