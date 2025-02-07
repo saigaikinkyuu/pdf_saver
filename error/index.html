@@ -6,13 +6,21 @@
   <title>エラー</title>
 </head>
 <body>
+  <h2 id='ttl'></h2>
   <script>
     // 現在のURLからクエリパラメータを取得する
     const queryString = window.location.search;
     const urlParams = new URLSearchParams(queryString);
     // クエリパラメータ "name" を取得する
-    const request_flag = urlParams.get('req');
-    const file_name = urlParams.get('name');
+    const code = urlParams.get('code');
+    const num = urlParams.get('num');
+    let code_array = ["00001","00101","10001"]
+    let code_array_text = ["利用できません","利用制限により利用できません","不明なリクエストです"]
+    if(code_array.indexOf(code) >= 0){
+      document.getElementById("ttl").innerHTML = code_array_text[code_array.indexOf(code)]
+    }else {
+      document.getElementById("ttl").innerHTML = "不明なエラーです"
+    }
   </script>
 </body>
 </html>
