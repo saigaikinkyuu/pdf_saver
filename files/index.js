@@ -31,15 +31,15 @@ fetch("../files.json")
             }
           }
         }
+        if(flag === false){
+          window.location.href = "../error/?code=10001&num=null"
+        }else{
+          const url = new URL(window.location);
+          // URLのクエリパラメータを削除
+          url.search = '';
+          // 新しいURLをヒストリーに追加し、ページをリロードせずにURLを変更
+          window.history.pushState({}, document.title, url);
+        }
       })
-      if(flag === false){
-        window.location.href = "../error/?code=10001&num=null"
-      }else{
-        const url = new URL(window.location);
-        // URLのクエリパラメータを削除
-        url.search = '';
-        // 新しいURLをヒストリーに追加し、ページをリロードせずにURLを変更
-        window.history.pushState({}, document.title, url);
-      }
   })
 
