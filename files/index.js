@@ -17,7 +17,6 @@ fetch("../files.json")
         for(let i = 0;i<item.length;i++){
           if(item[i].key === id && item[i].url === name){
             alert("実行1")
-            i += item.length
             for(let s = 0;s<datas.length;s++){
               if(datas[s].url === name){
                 alert("実行2")
@@ -29,6 +28,7 @@ fetch("../files.json")
                 }
               }
             }
+            i += item.length
           }
         }
         if(flag === false){
