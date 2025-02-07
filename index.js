@@ -45,7 +45,7 @@ if(flag === true){
                 window.close()
               }
             }
-            window.location.href = "./files/ac/" + file_info[0] + "." + file_info[6];
+            window.location.href = "./files/?name=" + file_info[0];
           }else if(file_info[1] === "un_available"){
             window.location.href = "./error/?code=00001&num=" + file_info[5];
           }else if(file_info[1] === "limit"){
