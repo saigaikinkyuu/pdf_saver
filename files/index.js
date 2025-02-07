@@ -14,7 +14,7 @@ fetch("../files.json")
       .then(response => response.json())
       .then(items => {
         let item = items.files
-        if(let i = 0;i<item.length;i++){
+        for(let i = 0;i<item.length;i++){
           if(item[i].key === id && item[i].url === name){
             i += item.length
             for(let s = 0;s<datas.length;s++){
