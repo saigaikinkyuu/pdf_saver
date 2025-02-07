@@ -7,6 +7,7 @@
 </head>
 <body>
   <h2 id='ttl'></h2>
+  <p id='body'></p>
   <script>
     // 現在のURLからクエリパラメータを取得する
     const queryString = window.location.search;
@@ -17,9 +18,24 @@
     let code_array = ["00001","00101","10001"]
     let code_array_text = ["利用できません","利用制限により利用できません","不明なリクエストです"]
     if(code_array.indexOf(code) >= 0){
+      if(code !== "10001"){
+        fetch("./files.json")
+          .then(response => response.json())
+          .then(data => {
+            let items = data.active[Number(num)]
+            let ttl = items.cont.ttl
+            let memo_pre = items.memo
+            let date = items.date
+            let memo = memo_pre.replace("{{date}}",date)
+            document.getElementById("body").innerHTML = "リクエストのファイル：" + ttl + "<br>" + memo
+          })
+      }else {
+        document.getElementById("body").innerHTML = "リクエストのファイルを見つけることができませんでした。<br>ファイルのデータが一部破損若しくは、データが消去された可能性があります。"
+      }
       document.getElementById("ttl").innerHTML = code_array_text[code_array.indexOf(code)]
     }else {
       document.getElementById("ttl").innerHTML = "不明なエラーです"
+      document.getElementById("body").innerHTML = "何らかのエラーにより、リクエストのコンテンツを表示できませんでした。"
     }
   </script>
 </body>
