@@ -21,7 +21,7 @@ fetch("../files.json")
               if(datas[s].url === name){
                 s += datas.length
                 if(datas[s].sta === "available"){
-                  document.body.innerHTML = "<iframe src='../?req=sh&name=none&url=" + item[i].hrf + "' style='width: 100%;height: 100%;'></iframe>"
+                  document.body.innerHTML = "<iframe src='../?req=sh&name=none&url=./files/ac/" + item[i].hrf + "' style='width: 100%;height: 100%;'></iframe>"
                   flag = true
                 }
               }
