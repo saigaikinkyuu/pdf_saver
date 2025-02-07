@@ -54,7 +54,7 @@ if(flag === true){
             window.location.href = "./error/?code=00101&num=" + file_info[5];
           }
         }else {
-          window.location.href = "./error/?code=10001&";
+          window.location.href = "./error/?code=10001&num=null";
         }
       })
   }else if(request_flag === "sh"){
