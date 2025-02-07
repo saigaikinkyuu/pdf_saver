@@ -1,7 +1,7 @@
 {
   "active" : [
     {
-      "id" : "0002_q",
+      "id" : "0002_q_01",
       "url" : "数学_問題_証明_中3",
       "sta" : "available",
       "memo" : "none",
@@ -9,7 +9,7 @@
       "upadate" : "false"
     },
     {
-      "id" : "0001_q",
+      "id" : "0001_q_02",
       "url" : "数学_演習問題_5_訂正",
       "sta" : "available",
       "memo" : "none",
@@ -18,7 +18,7 @@
       "old" : ["0001_q_01"]
     },
     {
-      "id" : "0001_a",
+      "id" : "0001_a_02",
       "url" : "数学_演習問題_5_A_訂正",
       "sta" : "available",
       "memo" : "none",
