@@ -7,6 +7,12 @@
 </head>
 <body>
   <script>
+    // 現在のURLからクエリパラメータを取得する
+    const queryString = window.location.search;
+    const urlParams = new URLSearchParams(queryString);
+    // クエリパラメータ "name" を取得する
+    const request_flag = urlParams.get('req');
+    const file_name = urlParams.get('name');
   </script>
 </body>
 </html>
