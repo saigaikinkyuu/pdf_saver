@@ -20,7 +20,7 @@ fetch("../files.json")
               if(datas[s].url === name){
                 if(datas[s].sta === "available"){
                   s += datas.length
-                  document.body.innerHTML = "<iframe src='../?req=sh&name=none&url=./files/ac/" + item[i].hrf + "' style='width: 100%;height: " + window.outerHeight + "px;'></iframe>"
+                  document.body.innerHTML = "<a href='../?req=sh&name=none&url=./files/ac/" + item[i].hrf + "' downloadダウンロード></a>"
                   document.title = "Contents"
                   flag = true
                 }
