@@ -6,6 +6,7 @@
   <title>エラー</title>
 </head>
 <body>
+  <h1 id='error_code'></h1>
   <h2 id='ttl'></h2>
   <p id='body'></p>
   <script>
@@ -19,6 +20,11 @@
     let code_array_text = ["利用できません","利用制限により利用できません","不明なリクエストです"]
     if(code_array.indexOf(code) >= 0){
       if(code !== "10001"){
+        if(code === "00101"){
+          document.getElementById("error_code").innerHTML = "403 Forbidden"
+        }else {
+          document.getElementById("error_code").innerHTML = "403 Forbidden"
+        }
         fetch("./files.json")
           .then(response => response.json())
           .then(data => {
@@ -31,11 +37,13 @@
           })
       }else {
         document.getElementById("body").innerHTML = "リクエストのファイルを見つけることができませんでした。<br>ファイルのデータが一部破損若しくは、データが消去された可能性があります。"
+        document.getElementById("error_code").innerHTML = "404 Not Found"
       }
       document.getElementById("ttl").innerHTML = code_array_text[code_array.indexOf(code)]
     }else {
       document.getElementById("ttl").innerHTML = "不明なエラーです"
       document.getElementById("body").innerHTML = "何らかのエラーにより、リクエストのコンテンツを表示できませんでした。"
+      document.getElementById("error_code").innerHTML = "400 Bad Request"
     }
   </script>
 </body>
