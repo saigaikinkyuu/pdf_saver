@@ -57,5 +57,8 @@ if(flag === true){
           window.location.href = "./error/?code=10001&";
         }
       })
+  }else if(request_flag === "sh"){
+    const url_sh = urlParams.get('url');
+    window.location.href = url_sh
   }
 }
