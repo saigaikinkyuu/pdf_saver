@@ -12,7 +12,12 @@ function pdfShow(url){
       const canvas = document.getElementById('pdfCanvas');
       const context = canvas.getContext('2d');
       canvas.width = viewport.width;
-      canvas.height = window.innerHeight;
+      canvas.height = viewport.height;
+      if(((window.innerHeight) / (viewport.height) * (viewport.width)) > window.innerWidth){
+        canvas.style.height = (window.innerWidth) / (viewport.width) * (viewport.height)
+      }else {
+        canvas.style.height = window.innerHeight
+      }
       // 描画の準備
       const renderContext = {
         canvasContext: context,
