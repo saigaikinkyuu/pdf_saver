@@ -53,6 +53,7 @@ fetch("../files.json")
                   document.title = "Contents"
                   flag = true
                   // a要素を作成してダウンロードを実行
+                  const filename = '数学.pdf'; // ダウンロードするファイル名
                   const url = "../files/ac/" + item[i].hrf
                   const a = document.createElement('a');
                   a.href = url;
