@@ -49,7 +49,7 @@ fetch("../files.json")
               if(datas[s].url === name){
                 if(datas[s].sta === "available"){
                   s += datas.length
-                  pdfShow("../files/ac/" + item[i].hrf + ".pdf")
+                  pdfShow("../files/ac/" + item[i].hrf)
                   document.title = "Contents"
                   flag = true
                 }
