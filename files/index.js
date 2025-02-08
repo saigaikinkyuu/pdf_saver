@@ -1,34 +1,30 @@
 function pdfShow(url){
-  const loadingTask = pdfjsLib.getDocument(url);
-  loadingTask.promise.then(pdf => {
-    console.log('PDF loaded');
-    // PDFの最初のページを取得
-    pdf.getPage(1).then(page => {
-      console.log('Page loaded');
-      const scale = 1; // スケールを設定
-      const viewport = page.getViewport({ scale });
-      // Canvas要素とコンテキストを取得
-      document.body.innerHTML = "<canvas id='pdfCanvas'></canvas>"
-      const canvas = document.getElementById('pdfCanvas');
-      const context = canvas.getContext('2d');
-      canvas.width = viewport.width;
-      canvas.height = viewport.height;
-      if(((window.innerHeight) / (viewport.height) * (viewport.width)) > window.innerWidth){
-        canvas.style.height = (window.innerWidth) / (viewport.width) * (viewport.height)
-      }else {
-        canvas.style.height = window.innerHeight
-      }
-      // 描画の準備
-      const renderContext = {
-        canvasContext: context,
-        viewport: viewport
-      };
-      // ページを描画
-      page.render(renderContext).promise.then(() => {
-        console.log('Page rendered');
+  const url = 'path/to/your/file.pdf'; // 表示するPDFのパス
+  
+  pdfjsLib.getDocument(url).promise.then(pdf => {
+    document.body.innerHTML = "<div id='pdfContainer'></div>"
+    const container = document.getElementById('pdfContainer');
+    for (let pageNum = 1; pageNum <= pdf.numPages; pageNum++) {
+      pdf.getPage(pageNum).then(page => {
+        const scale = 1.5;
+        const viewport = page.getViewport({ scale });
+        const canvas = document.createElement('canvas');
+        canvas.className = 'pdfPage';
+        const context = canvas.getContext('2d');
+        canvas.height = viewport.height;
+        canvas.width = viewport.width;
+        const renderContext = {
+          canvasContext: context,
+          viewport: viewport
+        };
+
+        container.appendChild(canvas);
+        page.render(renderContext).promise.then(() => {
+          console.log(`Page ${pageNum} rendered`);
+        });
       });
-    });
-  }, reason => {
+    }
+  }).catch(reason => {
     console.error(reason);
   });
 }
