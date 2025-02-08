@@ -8,6 +8,7 @@ function pdfShow(url){
       const scale = 1.5; // スケールを設定
       const viewport = page.getViewport({ scale });
       // Canvas要素とコンテキストを取得
+      document.body.innerHTML = "<canvas id='pdfCanvas'></canvas>"
       const canvas = document.getElementById('pdfCanvas');
       const context = canvas.getContext('2d');
       canvas.width = viewport.width;
