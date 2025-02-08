@@ -1,6 +1,4 @@
 function pdfShow(url){
-  const url = 'path/to/your/file.pdf'; // 表示するPDFのパス
-  
   pdfjsLib.getDocument(url).promise.then(pdf => {
     document.body.innerHTML = "<div id='pdfContainer'></div>"
     const container = document.getElementById('pdfContainer');
