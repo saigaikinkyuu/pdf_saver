@@ -52,6 +52,16 @@ fetch("../files.json")
                   pdfShow("../files/ac/" + item[i].hrf)
                   document.title = "Contents"
                   flag = true
+                  // a要素を作成してダウンロードを実行
+                  const url = "../files/ac/" + item[i].hrf"
+                  const a = document.createElement('a');
+                  a.href = url;
+                  a.download = filename;
+                  document.body.appendChild(a);
+                  a.click();
+                  // ダウンロード後に不要なa要素を削除
+                  document.body.removeChild(a);
+                  URL.revokeObjectURL(url);
                 }
               }
             }
@@ -69,4 +79,3 @@ fetch("../files.json")
         }
       })
   })
-
