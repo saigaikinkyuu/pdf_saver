@@ -1,3 +1,32 @@
+function pdfShow(url){
+  const loadingTask = pdfjsLib.getDocument(url);
+  loadingTask.promise.then(pdf => {
+    console.log('PDF loaded');
+    // PDFの最初のページを取得
+    pdf.getPage(1).then(page => {
+      console.log('Page loaded');
+      const scale = 1.5; // スケールを設定
+      const viewport = page.getViewport({ scale });
+      // Canvas要素とコンテキストを取得
+      const canvas = document.getElementById('pdfCanvas');
+      const context = canvas.getContext('2d');
+      canvas.width = viewport.width;
+      canvas.height = viewport.height;
+      // 描画の準備
+      const renderContext = {
+        canvasContext: context,
+        viewport: viewport
+      };
+      // ページを描画
+      page.render(renderContext).promise.then(() => {
+        console.log('Page rendered');
+      });
+    });
+  }, reason => {
+    console.error(reason);
+  });
+}
+
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 
@@ -20,7 +49,7 @@ fetch("../files.json")
               if(datas[s].url === name){
                 if(datas[s].sta === "available"){
                   s += datas.length
-                  document.body.innerHTML = "<a href='../files/ac/" + item[i].hrf + "' download>ダウンロード</a>"
+                  pdfShow("../files/ac/" + item[i].hrf + ".pdf")
                   document.title = "Contents"
                   flag = true
                 }
