@@ -2,11 +2,12 @@
   "active" : [
     {
       "id" : "0003_q_01",
-      "url" : "code_01_01_q",
+      "url" : "code_01_02_q",
       "sta" : "available",
       "memo" : "none",
-      "date" : "2025.02.18 21:40",
-      "upadate" : "false",
+      "date" : "2025.02.19 17:30",
+      "upadate" : "true",
+      "old" : ["code_01_01_q"],
       "cont" : {
         "ttl" : "暗号問題",
         "des" : "ーー",
