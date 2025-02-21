@@ -1,16 +1,32 @@
 {
+  "sample" : [
+    {
+      "id" : "IDを記入します",
+      "url" : "データ共通のIDを入力します",
+      "sta" : "availableかun_available",
+      "memo" : "必要に応じて記入",
+      "date" : "YYYY.MM.DD hh:mm",
+      "upadate" : "trueかflase",
+      "old" : ["もともと使っていた共通IDを記入します"],
+      "cont" : {
+        "ttl" : "タイトル",
+        "des" : "説明",
+        "kind" : "pdfかそれ以外"
+      }
+    }
+  ],
   "active" : [
     {
       "id" : "0003_q_01",
-      "url" : "code_01_03_q",
-      "sta" : "unavailable",
+      "url" : "code_01_04_q",
+      "sta" : "available",
       "memo" : "none",
-      "date" : "2025.02.20 21:00",
+      "date" : "2025.02.21 17:30",
       "upadate" : "true",
-      "old" : ["code_01_01_q","code_01_02_q"],
+      "old" : ["code_01_01_q","code_01_02_q","0003_q_01"],
       "cont" : {
         "ttl" : "暗号問題",
-        "des" : "ーー",
+        "des" : "訂正しました",
         "kind" : "pdf"
       }
     },
