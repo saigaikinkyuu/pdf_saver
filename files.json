@@ -17,6 +17,19 @@
   ],
   "active" : [
     {
+      "id" : "0004_law_keiyaku",
+      "url" : "code_01_05_l_k",
+      "sta" : "available",
+      "memo" : "none",
+      "date" : "2025.10.03 21:00",
+      "upadate" : "true",
+      "cont" : {
+        "ttl" : "未成年者の宿泊契約の同意書",
+        "des" : "法的文書です",
+        "kind" : "pdf"
+      }
+    },
+    {
       "id" : "0003_q_01",
       "url" : "code_01_04_q",
       "sta" : "available",
